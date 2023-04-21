@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sidebar 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+<script>
+	function autoRefresh() {
+		window.location = window.location.href;
+	}
+	setInterval('autoRefresh()', 4000);
+</script>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+  </head>
+
+
+
+  <body>
+	
+		
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+		<script>
+			var firebaseConfig = {
+  			apiKey: "AIzaSyD77O_xaQmg3tV9kKHfne1Zs4pGLfsULas",
+  			authDomain: "sensorprojects-6db23.firebaseapp.com",
+  			databaseURL: "https://sensorprojects-6db23-default-rtdb.firebaseio.com",
+ 			projectId: "sensorprojects-6db23",
+  			storageBucket: "sensorprojects-6db23.appspot.com",
+ 			 messagingSenderId: "407244447376",
+ 			 appId: "1:407244447376:web:8067aa0ecce952a4a98215",
+  			measurementId: "G-38DTS587G4"
+			};
+
+			
+			firebase.initializeApp(firebaseConfig);
+			//var firebaseRef = firebase.databse().ref("")
+			var database = firebase.database();
+var allValuesRef = database.ref('Sensorvalue');
+var accelDataRef = allValuesRef.child('acclerometer');
+var gyroDataRef = allValuesRef.child('gyroscope9');
+var accelXRef = accelDataRef.child('x');
+var accelYRef = accelDataRef.child('y');
+var accelZRef = accelDataRef.child('z');
+
+var gyroXRef = gyroDataRef.child('x1');
+var gyroYRef = gyroDataRef.child('x2');
+var gyroZRef = gyroDataRef.child('x3');
+var gyroZxRef = gyroDataRef.child('x4');
+
+accelXRef.once('value').then(function(snapshot) {
+  var accelXValue = snapshot.val();
+  // Do something with the accelXValue
+  document.write("<br><h1>Accelerometer</h1>")
+document.write("Accelerometer X value : "+ accelXValue);
+  console.log("Accelerometer X value : "+ accelXValue);
+});
+
+accelYRef.once('value').then(function(snapshot) {
+  var accelYValue = snapshot.val();
+  // Do something with the accelYValue
+ 
+document.write("<br>Accelerometer Y value : "+accelYValue)
+  console.log("Accelerometer Y value : "+accelYValue)
+});
+
+accelZRef.once('value').then(function(snapshot) {
+  var accelZValue = snapshot.val();
+  // Do something with the accelZValue
+  document.write("<br>Accelerometer z value : "+accelZValue)
+  console.log("Accelerometer z value : "+accelZValue);
+});
+
+gyroXRef.once('value').then(function(snapshot) {
+  var gyroXValue = snapshot.val();
+  // Do something with the gyroXValue
+  document.write("<br><h1>Gyrometer</h1>")
+  document.write("<br>Gyrometer X value : "+gyroXValue);
+  console.log("Gyrometer X value : "+gyroXValue);
+});
+
+gyroYRef.once('value').then(function(snapshot) {
+  var gyroYValue = snapshot.val();
+  // Do something with the gyroYValue
+document.write("<br>Gyrometer Y value : "+gyroYValue);
+  console.log("Gyrometer Y value : "+gyroYValue);
+});
+
+gyroZRef.once('value').then(function(snapshot) {
+  var gyroZValue = snapshot.val();
+  // Do something with the gyroZValue
+  document.write("<br>Gyrometer Z value : "+gyroZValue);
+  console.log("Gyrometer Z value : "+gyroZValue);
+});
+
+		</script>
+		
+       
+      </div>
+		</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
