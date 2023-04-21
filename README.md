@@ -1,5 +1,6 @@
 # Sensor
-This project is aimed at collecting gyroscope and accelerometer data from a mobile device and syncing it to a Firebase database. The collected data can be used for a wide range of applications such as motion tracking, activity recognition, and fitness monitoring.
+This project is aimed at collecting gyroscope and accelerometer data from a mobile device and syncing it to a Firebase database. The same data is streamed to the website in real-time.
+The collected data can be used for a wide range of applications such as motion tracking, activity recognition, and fitness monitoring.
 
 # Technologies Used
 Android Studio: to develop the mobile application
@@ -23,3 +24,18 @@ You can view the collected data in the Firebase console and on the website.
 
 # Results
  View the result here - https://drive.google.com/drive/folders/1kbxaozLBmDHuu2_mJLiachWuNKcP2EfA?usp=sharing
+ 
+ # Team Contribution
+ Website to stream the data is made by <br>
+ [Chinmaya Shyamraj](https://github.com/ChinmayaShyamaraj) - Firebase connectivtiy to website <br>
+ [Adril Vaz](https://github.com/adril27) - Firebase connectivtiy to website <br>
+ [Niyata Naik](https://github.com/NiyataNaik) - Website Frontend <br>
+
+Android App is made by <br>
+[Ujjwal Karan](https://github.com/ujjwalkran) - App Backend and Firebase Connectivity <br>
+[Sammitha S Poojary](https://github.com/SammithaS) - App Frontend <br>
+[Shri Hari](https://github.com/Shri243) - App Backend and Firebase Connectivity <br>
+
+# Android App Repo link
+Here is the Android App repo link - https://github.com/ujjwalkran/Sensor
+ 
