@@ -4,7 +4,6 @@ This project is a webpage that streams sensor data from Firebase. The data is co
 
 ## Table of Contents
 
-- [Demo](#demo)
 - [Getting Started](#getting-started)
 - [Technologies Used](#technologies-used)
 - [Mobile App](#mobile-app)
