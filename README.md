@@ -36,6 +36,6 @@ Android App is made by <br>
 - [Sammitha S Poojary](https://github.com/SammithaS) - App Frontend <br>
 - [Shri Hari](https://github.com/Shri243) - App Backend and Firebase Connectivity <br>
 
-# Android App Repo link
+## Android App Repo link
 Here is the Android App repo link - https://github.com/ujjwalkran/Sensor
  
