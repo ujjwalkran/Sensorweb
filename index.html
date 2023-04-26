@@ -7,27 +7,116 @@
 	<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-<script>
-	function autoRefresh() {
-		window.location = window.location.href;
-	}
-	setInterval('autoRefresh()', 4000);
-</script>
+
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="background-color:#1AA7EC;font-family: 'Poppins', sans-serif;">
+      <nav>
+       
+        <!--
+        <div class="logo"><img src="image/redbus.jpg" height="60px" width="100%" alt="" ></div>   
+        -->
+        <h1 style="color: #1AA7EC;text-align: center;padding-left:50%;">Sensor Data</h1>
+        
+     </nav>
+          <h2 style="color: blanchedalmond;padding-left: 10%;">Accelerometer</h2>
+    <div class="col-md-10 ">
+        <div class="row ">
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-cherry">
+                    <div class="card-statistic-3 p-4">
+                        <div class="text">
+                            
+                        Accelerometer X value :<div id="xvalue" style="display: inline-block;"> </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-blue-dark">
+                    <div class="card-statistic-3 p-4">
+                      <div class="text" id="text">
+                          Accelerometer Y value :
+                        <div id="yvalue" style="display: inline-block;">
+                             
+                        </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-green-dark">
+                    <div class="card-statistic-3 p-4">
+                      <div class="text" id="text">
+                          Accelerometer Z value :
+                        <div id="zvalue" style="display: inline-block;">
+                            
+                       </div>
+                       </div>
+                  
+                    </div>
+                </div>
+            </div>
+              <h2 style="color: blanchedalmond;padding-left: 10%;">Gyroscope</h2>
+            <div class="col-md-10 ">
+                <div class="row ">
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-cherry">
+                            <div class="card-statistic-3 p-4">
+                              <div class="text" id="text"> 
+                                Gyroscope X value :
+                              <div id="xgvalue" style="display: inline-block;">
+                                   
+                              </div>
+                              </div>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6" >
+                        <div class="card l-bg-blue-dark">
+                            <div class="card-statistic-3 p-4">
+                              <div class="text" id="text">
+                                Gyroscope Y value :
+                              <div id="ygvalue" style="display: inline-block;">
+                                   
+                              </div>
+                              </div>
+                               
+                            </div>
+                        </div>
+                    
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-green-dark">
+                            <div class="card-statistic-3 p-4">
+                              <div class="text" id="text">
+                                Gyroscope Z value :
+                              <div id="zgvalue" style="display: inline-block;">
+                                   
+                              </div>
+                              </div>
+                               
+                            </div>
+                        
+                      </div>
+                    </div>    
+        </div>
 
 
-
-  <body>
-	
-
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-		<script>
+      </div>
+		</div>
+    		<script>
 			var firebaseConfig = {
   			apiKey: "AIzaSyD77O_xaQmg3tV9kKHfne1Zs4pGLfsULas",
   			authDomain: "sensorprojects-6db23.firebaseapp.com",
@@ -55,56 +144,44 @@ var gyroYRef = gyroDataRef.child('x2');
 var gyroZRef = gyroDataRef.child('x3');
 var gyroZxRef = gyroDataRef.child('x4');
 
-accelXRef.once('value').then(function(snapshot) {
-  var accelXValue = snapshot.val();
-  // Do something with the accelXValue
-  document.write("<br><h1>Accelerometer</h1>")
-document.write("Accelerometer X value : "+ accelXValue);
-  console.log("Accelerometer X value : "+ accelXValue);
+accelXRef.on('value',function(snapshot) {
+  var accelXValue=snapshot.val();
+  document.getElementById("xvalue").innerHTML=accelXValue;
+  
 });
 
-accelYRef.once('value').then(function(snapshot) {
+accelYRef.on('value',function(snapshot) {
   var accelYValue = snapshot.val();
   // Do something with the accelYValue
  
-document.write("<br>Accelerometer Y value : "+accelYValue)
-  console.log("Accelerometer Y value : "+accelYValue)
+document.getElementById("yvalue").innerHTML=accelYValue
+
 });
 
-accelZRef.once('value').then(function(snapshot) {
+accelZRef.on('value',function(snapshot) {
   var accelZValue = snapshot.val();
   // Do something with the accelZValue
-  document.write("<br>Accelerometer z value : "+accelZValue)
-  console.log("Accelerometer z value : "+accelZValue);
+ document.getElementById("zvalue").innerHTML=accelZValue;
 });
 
-gyroXRef.once('value').then(function(snapshot) {
+gyroXRef.on('value',function(snapshot) {
   var gyroXValue = snapshot.val();
   // Do something with the gyroXValue
-  document.write("<br><h1>Gyrometer</h1>")
-  document.write("<br>Gyrometer X value : "+gyroXValue);
-  console.log("Gyrometer X value : "+gyroXValue);
+document.getElementById("xgvalue").innerHTML=gyroXValue;
 });
 
-gyroYRef.once('value').then(function(snapshot) {
+gyroYRef.on('value',function(snapshot) {
   var gyroYValue = snapshot.val();
-  // Do something with the gyroYValue
-document.write("<br>Gyrometer Y value : "+gyroYValue);
-  console.log("Gyrometer Y value : "+gyroYValue);
+document.getElementById("ygvalue").innerHTML=gyroYValue;
 });
 
-gyroZRef.once('value').then(function(snapshot) {
+gyroZRef.on('value',function(snapshot) {
   var gyroZValue = snapshot.val();
-  // Do something with the gyroZValue
-  document.write("<br>Gyrometer Z value : "+gyroZValue);
-  console.log("Gyrometer Z value : "+gyroZValue);
+ document.getElementById("zgvalue").innerHTML= gyroZValue;
+
 });
 
 		</script>
-
-      </div>
-		</div>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
